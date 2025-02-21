@@ -1,5 +1,5 @@
 import AudioPlayer from "./AudioPlayer"
-import Navigation from "./Navigation"
+import ButtonsGroup from "./ButtonsGroup"
 import Picture from './Picture'
 import Progress_container from './Progress_container'
 import { useState, useRef, useEffect } from "react"
@@ -27,48 +27,61 @@ export default function AudioControler() {
     }
 
 
-    function clickTheBar(e) {
-
+    function onBarClick(e) {
         const song = audioRef.current;
-        const progressBar = barRef.current;
-        const rect = progressBar.getBoundingClientRect();
+        const rect = barRef.current.getBoundingClientRect();
         const newPercentage = ((e.clientX - rect.x) / rect.width);
         const vinyl = vinylRef.current;
 
+        //Updating the progress bar and audio when the user clicks on the progress
+        //bar to change the timseStamp of the song. 
         progressRef.current.style.width = `${newPercentage * 100}%`;
         song.currentTime = newPercentage * song.duration;
-        if (!isPlaying) playMusic(song,vinyl);
-
+        (!isPlaying) && playMusic(song,vinyl);
 
     }
 
+    function handlePlayButton() {
+        const vinyl = vinylRef.current;
+        const song = audioRef.current;
+
+        if (isPlaying) {
+            PauseMusic(song,vinyl);
+        } else {
+            playMusic(song,vinyl);
+        }
+    }
 
     useEffect(() => {
         const song = audioRef.current;
         const vinyl = vinylRef.current;
 
+        /// When the song plays, the time and
+        //  progress displayed on the progress bar update continuously
         function updateProgress() {
             setTimeStamp(song.currentTime);
             const percentage = (song.currentTime / song.duration) * 100;
             progressRef.current.style.width = `${percentage}%`;
         }
 
+        //When the the song is loaded, its duration is displayed
         function loadDuration() {
-            setDuration(song.duration);
+            setDuration(prevState => song.duration);
         }
 
-
+        // When the song ends, the progress bar, 
+        // the timestamp, and the rotating vinyl revert to their initial states.
         function handleTheEnd() {
             progressRef.current.style.width = `${0}%`;
             vinyl.classList.remove('play');
-            setDuration(song.duration);
             setTimeStamp(0)
             setIsPlaying((prevState => (!prevState)));
         }
 
-        song.addEventListener('ended', handleTheEnd)
-        song.addEventListener('timeupdate', updateProgress);
         song.addEventListener('loadedmetadata', loadDuration);
+        song.addEventListener('timeupdate', updateProgress);
+        song.addEventListener('ended', handleTheEnd);
+
 
         return () => {
             song.addEventListener('loadedmetadata', loadDuration);
@@ -77,24 +90,13 @@ export default function AudioControler() {
         }
     }, [])
 
-    function handlePlayButton() {
-        const vinyl = vinylRef.current;
-        const song = audioRef.current;
-        if (isPlaying) {
-            PauseMusic(song,vinyl);
-        } else {
-            playMusic(song,vinyl);
-        }
-    }
-
-
 
     return (
         <>
             <Picture vinylRef={vinylRef} isPlaying={isPlaying} />
-            <Progress_container timeStamp={timeStamp} duration={duration} progressRef={progressRef} clickTheBar={clickTheBar} barRef={barRef} />
+            <Progress_container timeStamp={timeStamp} duration={duration} progressRef={progressRef} onBarClick={onBarClick} barRef={barRef} />
             <AudioPlayer audioRef={audioRef} isPlaying={isPlaying} setIsPlaying={setIsPlaying} vinylRef={vinylRef} />
-            <Navigation isPlaying={isPlaying} handlePlayButton={handlePlayButton} />
+            <ButtonsGroup isPlaying={isPlaying} handlePlayButton={handlePlayButton} />
         </>
     )
 }
