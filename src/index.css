@@ -10,10 +10,10 @@
   -moz-osx-font-smoothing: grayscale;
   --primary-colour:rgb(245, 225, 225);
   --secondary-colour: #fbc9c9;
-  --third-colour : #debbbb ;
+  --third-colour : #ffe4e4;
   --third-colour-lighter: #dab8b8;
-  --letter-primary-colour: #868686;
-  --letter-secondary-colour: #a0a0a0;
+  --letter-primary-colour: #4a4a4a;
+  --letter-secondary-colour: #4a4a4a;
 }
 
 
