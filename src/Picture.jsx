@@ -1,4 +1,4 @@
-import initial from './assets/initial-Image.jpg'
+import initial from './assets/susan-wilkinson-KsXMr9DasZE-unsplash.jpg'
 
 export default function Picture({ vinylRef, initialPicture = initial }) {
 

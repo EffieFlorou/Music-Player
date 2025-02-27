@@ -54,5 +54,13 @@ npm run dev
 - Special thanks to [Unsplash](https://unsplash.com) for providing high-quality image for my project.
 [Evie S.](https://unsplash.com/photos/a-group-of-metal-leaves-sitting-on-top-of-a-white-surface-uuCjYxJVf4o).
 
-- Thanks to [Pixabay](https://pixabay.com) for providing amazing music for my project.
-  [SweetBeats808s](https://pixabay.com/users/sweetbeats808s-34953295/).
+This project uses music from Pixabay.
+
+- **Music Track Title:** [Relaxing Guitar Loop V5](https://pixabay.com/sound-effects/relaxing-guitar-loop-v5-245859/)
+- **Artist:** [SweetBeats808s](https://pixabay.com/users/sweetbeats808s-34953295/)
+
+- **Music Track Title:** [Relaxing Lofi Beat for study](https://pixabay.com/music/beats-relaxing-lofi-beat-for-study-266879/)
+- **Artist:** [SweetBeats808s](https://pixabay.com/collections/lofi-beats-24618748/)
+
+- **Music Track Title:** [free music for youtube videos,free to use music](https://pixabay.com/music/beats-free-music-for-youtube-videosfree-to-use-music-233909/)
+- **Artist:** [DesiFreeMusic](https://pixabay.com/users/desifreemusic-28163210/)
