@@ -1,7 +1,10 @@
-export default function Button({shape}){
+export default function Button({shape, pushable=false,insertSong} ){
+
     return (
-        <button >
-            <i className={shape}></i>
+
+        <button className={pushable?'pushable':''} ref={insertSong}>
+            <i className={shape}>
+            </i>
         </button>
     )
 }

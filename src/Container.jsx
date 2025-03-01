@@ -1,5 +1,6 @@
 import AudioControler from './AudioControler'
 import './container.css'
+import InputSong from './inputSong';
 
 export default function Container() {
 
@@ -12,6 +13,9 @@ export default function Container() {
     return (
         <div className='music-container'>
             <h2 style={style}>Now Playing</h2>
+            <div>
+                <InputSong/>
+            </div>
             <AudioControler/>
         </div>
     )

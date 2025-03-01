@@ -1,12 +1,38 @@
 .buttons {
     display: flex;
     padding-top: 20px;
-} 
-.buttons button:fist-child{
-    width: 40px;
-    height: 40px;
+    gap: 10px;
 }
-button{
+
+.pushable {
+    width: 35px;
+    height: 35px;
+    padding: 6px 9px;
+    background-color: var(--third-colour);
+    color: var(--letter-primary-colour);
+    box-shadow: 0 3px #5a58582f;
+    transform: translateY(-4px);
+    transition: transform box-shadow 0.5s ease-in-out;
+
+}
+
+.pushable:hover {
+    box-shadow: 0px 2px #5a585867;
+    transform: translateY(-3px);
+}
+
+.pushable:active{
+    box-shadow: 0px 1px #5a585867;
+    transform: translateY(-2px); 
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+button {
     width: 50px;
     height: 50px;
     color: var(--letter-secondary-colour);
@@ -15,11 +41,50 @@ button{
     border-radius: 50%;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.01); 
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.01);
     transition: box-shadow 0.3s ease;
 }
 
-button:hover{   
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+.buttons > :first-child ,
+.buttons > :last-child{
+    width: 35px; 
+    height: 35px;
+    padding: 5px 2px; 
+    box-shadow: 0 3px #5a58582f;
 }
 
+.buttons > :first-child:hover,
+.buttons > :last-child:hover{
+    box-shadow: 0px 2px #5a585867;
+    transform: translateY(-3px);
+}
+
+.buttons > :first-child:active,
+.buttons > :last-child:active{
+    box-shadow: 0px 1px #5a585867;
+    transform: translateY(-2px);
+}
+
+
+.buttons > :nth-child(even) {
+    width: 45px; 
+    height: 45px;
+    padding: 0px 1px; 
+    box-shadow: 0 3px #5a58582f;
+}
+
+.buttons > :nth-child(even):hover {
+    box-shadow: 0px 2px #5a585867;
+    transform: translateY(-3px);
+}
+
+.buttons > :nth-child(even):active {
+    box-shadow: 0px 1px #5a585867;
+    transform: translateY(-2px);
+}
+
+
+.buttons > :nth-child(3):hover{
+    box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.01);
+
+}
